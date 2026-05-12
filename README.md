@@ -1,262 +1,143 @@
 # Previews Hub Landings
 
-Monorepo de landings gastronomicas con dos hubs: uno local para revisar previews durante el trabajo y uno publico para mostrar landings deployadas en Vercel como portfolio.
+Portfolio hub de landings gastronomicas. El proyecto reune 31 landings React Router y publica una seleccion inicial de 10 demos en un hub simple para navegar, abrir y comparar previews deployadas.
 
-## Que Hace
+## Que Incluye
 
-- Organiza 31 landings React Router por categoria gastronomica.
-- Expone un hub local para filtrar por categoria, buscar por nombre/carpeta y comparar landings en iframes.
-- Incluye `apps/portfolio-hub`, una app publica para mostrar 10 landings deployadas.
-- Inicia cada landing bajo demanda en un puerto local propio.
-- Permite iniciar todas las previews cuando hace falta revisar el set completo.
-- Mantiene una matriz de categorias y variantes en `restaurant-templates/categories.json` y `restaurant-templates/variants.json`.
-- Esta preparado para Vercel Monorepos: cada landing puede deployarse como proyecto independiente usando su `Root Directory`.
+- Hub publico en `apps/portfolio-hub`.
+- 31 landings gastronomicas en `restaurant-templates/`.
+- Catalogo de 10 demos en `apps/portfolio-hub/data/landings.json`.
+- Comparacion de landings en iframes desde el hub.
+- Configuracion para Vercel Monorepos.
 
-## Que No Hace
-
-- No deploya automaticamente las 31 landings.
-- No reemplaza al dashboard de Vercel para crear proyectos por landing.
-- No persiste estado, logs ni seleccion de comparacion.
-- No usa base de datos ni servicios externos.
-- No debe subirse con `node_modules`, `build`, `.react-router` ni `.vercel`; esos artefactos quedan ignorados.
-
-## Como Correrlo
-
-Requisitos:
+## Requisitos
 
 - Node.js 22 o superior.
 - npm.
 
-Instalacion:
+Instalar dependencias:
 
 ```bash
 npm ci
 ```
 
-Usar la version sugerida con `nvm`:
+## Hub
 
-```bash
-nvm use
-```
-
-Correr el hub:
-
-```bash
-npm run preview:hub
-```
-
-Abrir la URL que imprime la terminal, normalmente:
+El hub esta en:
 
 ```text
-http://127.0.0.1:5170/
+apps/portfolio-hub
 ```
 
-Correr el hub e iniciar todas las landings:
+Usa este archivo como fuente de datos:
+
+```text
+apps/portfolio-hub/data/landings.json
+```
+
+Validar datos del hub:
 
 ```bash
-npm run preview:all
+npm run hub:validate
 ```
 
-Validar el proyecto:
+Build del hub:
 
 ```bash
-npm run check:hub
-npm run build
-npm run typecheck
+npm run hub:build
 ```
 
-## Como Publicarlo En Vercel
+El build genera:
 
-Para que lo vea cualquier persona, hay que deployar:
+```text
+apps/portfolio-hub/dist
+```
 
-1. `apps/portfolio-hub` como el hub publico.
-2. Las 10 landings seleccionadas como proyectos separados.
-3. Confirmar que las URLs en `apps/portfolio-hub/data/landings.json` coincidan con los dominios que te dio Vercel.
-4. Un nuevo deploy del hub publico para que muestre los links y previews.
+## Deploy En Vercel
 
-El hub publico no levanta procesos locales: muestra y embebe URLs ya deployadas. El JSON ya trae URLs esperadas tipo `https://<projectName>.vercel.app`; si Vercel te da otro dominio, reemplazas ese valor.
+El deploy se hace con proyectos separados:
 
-Config del proyecto Vercel para el hub publico:
+1. Un proyecto para el hub.
+2. Un proyecto por cada landing publica.
+
+Config del hub:
 
 | Setting | Valor |
 | --- | --- |
 | Root Directory | `apps/portfolio-hub` |
 | Framework Preset | `Other` |
+| Install Command | `npm install` |
 | Build Command | `npm run build` |
 | Output Directory | `dist` |
 
-Landings seleccionadas para el primer portfolio publico:
+Config de cada landing:
 
-| Landing | Root Directory | Project sugerido |
-| --- | --- | --- |
-| Restaurante | `restaurant-templates/restaurantes/template-01-airbnb/landing` | `restaurantes-airbnb` |
-| Comida argentina | `restaurant-templates/comida-argentina/template-02-mastercard/landing` | `comida-argentina-mastercard` |
-| Comida rapida | `restaurant-templates/comida-rapida/template-01-uber/landing` | `comida-rapida-uber` |
-| Delivery | `restaurant-templates/comida-delivery/template-02-shopify/landing` | `comida-delivery-shopify` |
-| Bar | `restaurant-templates/bares/template-01-spotify/landing` | `bares-spotify` |
-| Cafeteria | `restaurant-templates/cafeteria/template-02-notion/landing` | `cafeteria-notion` |
-| Desayuno | `restaurant-templates/desayuno/template-03-airbnb/landing` | `desayuno-airbnb` |
-| Bebidas | `restaurant-templates/bebidas/template-03-pinterest/landing` | `bebidas-pinterest` |
-| Helados | `restaurant-templates/helados/template-01-clay/landing` | `helados-clay` |
-| Cocina internacional | `restaurant-templates/comida-internacional/template-03-mastercard/landing` | `comida-internacional-mastercard` |
+| Setting | Valor |
+| --- | --- |
+| Root Directory | carpeta `landing` correspondiente |
+| Framework Preset | `React Router` |
+| Install Command | `npm install` |
+| Build Command | `npm run build` |
+| Output Directory | default |
 
-## Endpoints Del Hub
+Las landings estan configuradas con `ssr: false`, por lo que se publican como sitios estaticos y no crean Serverless Functions en Vercel.
 
-El hub corre localmente con `npm run preview:hub`. Por defecto usa `http://127.0.0.1:5170`.
+## Landings Publicas
 
-| Metodo | Endpoint | Descripcion |
-| --- | --- | --- |
-| `GET` | `/` | UI del hub local. |
-| `GET` | `/api/landings` | Devuelve categorias, landings, URLs locales, puertos y estado actual. |
-| `POST` | `/api/start` | Inicia varias landings por `ids`. |
-| `POST` | `/api/start/:id` | Inicia una landing puntual. |
-| `POST` | `/api/stop` | Detiene procesos iniciados por el hub. |
-| `GET` | `/api/logs/:id` | Devuelve logs recientes de una landing. |
+| Proyecto | Root Directory |
+| --- | --- |
+| `restaurantes-airbnb` | `restaurant-templates/restaurantes/template-01-airbnb/landing` |
+| `comida-argentina-mastercard` | `restaurant-templates/comida-argentina/template-02-mastercard/landing` |
+| `comida-rapida-uber` | `restaurant-templates/comida-rapida/template-01-uber/landing` |
+| `comida-delivery-shopify` | `restaurant-templates/comida-delivery/template-02-shopify/landing` |
+| `bares-spotify` | `restaurant-templates/bares/template-01-spotify/landing` |
+| `cafeteria-notion` | `restaurant-templates/cafeteria/template-02-notion/landing` |
+| `desayuno-airbnb` | `restaurant-templates/desayuno/template-03-airbnb/landing` |
+| `bebidas-pinterest` | `restaurant-templates/bebidas/template-03-pinterest/landing` |
+| `helados-clay` | `restaurant-templates/helados/template-01-clay/landing` |
+| `comida-internacional-mastercard` | `restaurant-templates/comida-internacional/template-03-mastercard/landing` |
 
-Puertos por defecto:
+Si Vercel asigna otro dominio, actualizar `publicUrl` en:
 
-| Variable | Default | Uso |
-| --- | --- | --- |
-| `HUB_HOST` | `127.0.0.1` | Host del hub. |
-| `HUB_PORT` | `5170` | Puerto inicial del hub. Si esta ocupado, busca otro cercano. |
-| `PREVIEW_HOST` | `127.0.0.1` | Host de las landings. |
-| `LANDING_BASE_PORT` | `5300` | Primer puerto usado por las landings. |
-| `START_ALL` | `0` | Con `1`, inicia todas al levantar el hub. |
-
-## Ejemplos De JSON
-
-### `GET /api/landings`
-
-Respuesta abreviada:
-
-```json
-{
-  "categories": [
-    {
-      "slug": "restaurantes",
-      "label": "Restaurantes"
-    }
-  ],
-  "landings": [
-    {
-      "id": "restaurantes--template-01-airbnb",
-      "categorySlug": "restaurantes",
-      "categoryLabel": "Restaurantes",
-      "templateDir": "template-01-airbnb",
-      "templateOrder": 1,
-      "variantName": "Airbnb",
-      "styleSlug": "airbnb",
-      "packageName": "landing-restaurantes-airbnb",
-      "relativePath": "restaurantes/template-01-airbnb/landing",
-      "port": 5300,
-      "url": "http://127.0.0.1:5300/",
-      "state": {
-        "status": "stopped",
-        "external": false,
-        "startedAt": null,
-        "exitCode": null
-      }
-    }
-  ]
-}
+```text
+apps/portfolio-hub/data/landings.json
 ```
 
-### `POST /api/start`
+Despues redeployar el hub.
 
-Request:
+## SSR False
 
-```json
-{
-  "ids": [
-    "restaurantes--template-01-airbnb",
-    "bares--template-01-spotify"
-  ]
-}
-```
+`ssr: false` significa que React Router genera una app estatica para el navegador.
 
-Respuesta abreviada:
+En este repo conviene porque las landings no usan datos del servidor, sesiones, cookies ni acciones server-side. El resultado es mas simple para Vercel: archivos estaticos en vez de funciones serverless.
 
-```json
-{
-  "results": [
-    {
-      "id": "restaurantes--template-01-airbnb",
-      "url": "http://127.0.0.1:5300/",
-      "state": {
-        "status": "running",
-        "external": false,
-        "startedAt": "2026-05-12T05:39:55.494Z",
-        "exitCode": null,
-        "error": null
-      }
-    }
-  ],
-  "errors": []
-}
-```
+## Comandos
 
-### `GET /api/logs/:id`
-
-Respuesta:
-
-```json
-{
-  "id": "restaurantes--template-01-airbnb",
-  "logs": [
-    "[02:39:55] Starting restaurantes/template-01-airbnb/landing on http://127.0.0.1:5300/",
-    "[02:39:56] Local: http://127.0.0.1:5300/"
-  ]
-}
-```
-
-## Diagrama
-
-```mermaid
-flowchart LR
-  User[Usuario] --> Hub[Preview Hub local]
-  Hub --> Catalog[Catalogo JSON]
-  Catalog --> Categories[categories.json]
-  Catalog --> Variants[variants.json]
-  Hub --> API[API local]
-  API --> Proc[Procesos npm run dev]
-  Proc --> L1[Landing 5300]
-  Proc --> L2[Landing 5301]
-  Proc --> L3[Landing 53xx]
-  Hub --> Frames[Comparacion en iframes]
-  Frames --> L1
-  Frames --> L2
-  Frames --> L3
-  Visitor[Visitante portfolio] --> PublicHub[Portfolio Hub Vercel]
-  Repo[GitHub repo] --> Vercel[Vercel Monorepos]
-  Vercel --> PublicHub
-  Vercel --> DemoA[Landing publica A]
-  Vercel --> DemoB[Landing publica B]
-  PublicHub --> DemoA
-  PublicHub --> DemoB
+```bash
+npm run hub:validate
+npm run hub:build
+npm run build
+npm run typecheck
 ```
 
 ## Estructura
 
 ```text
 .
-├── package.json
-├── package-lock.json
-├── VERCEL.md
-├── apps/
-│   └── portfolio-hub/
-├── base-wireframe/
-└── restaurant-templates/
-    ├── categories.json
-    ├── variants.json
-    ├── tools/
-    │   └── preview-hub.mjs
-    └── <categoria>/<template>/landing/
+|-- apps/
+|   `-- portfolio-hub/
+|-- base-wireframe/
+|-- restaurant-templates/
+|   |-- categories.json
+|   |-- variants.json
+|   `-- <categoria>/<template>/landing/
+|-- package.json
+|-- package-lock.json
+`-- VERCEL.md
 ```
 
-## Deploy En Vercel
+## Notas
 
-El repo esta preparado para Vercel Monorepos. Cada landing se importa como proyecto separado usando su carpeta `landing` como `Root Directory`.
-
-Ver la guia completa en [VERCEL.md](./VERCEL.md).
-
-El primer corte recomendado es `hub publico + 10 landings`. Cuando eso este funcionando, se puede ampliar el JSON y deployar las 31.
+- No subir `node_modules`, `build`, `.react-router`, `.vite` ni `.vercel`.
+- El hub muestra URLs ya deployadas; no levanta procesos locales.
+- La guia detallada de deploy esta en `VERCEL.md`.

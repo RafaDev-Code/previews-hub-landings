@@ -8,9 +8,8 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "check:hub": "node --check restaurant-templates/tools/preview-hub.mjs",
-    "preview:hub": "node restaurant-templates/tools/preview-hub.mjs",
-    "preview:all": "START_ALL=1 node restaurant-templates/tools/preview-hub.mjs"
+    "hub:build": "npm run build --workspace portfolio-hub",
+    "hub:validate": "npm run validate --workspace portfolio-hub"
   },
   "workspaces": [
     "apps/portfolio-hub",
