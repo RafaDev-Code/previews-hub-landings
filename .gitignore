@@ -4,6 +4,7 @@ node_modules/
 
 # Build outputs
 build/
+rr/
 dist/
 .react-router/
 .vite/
