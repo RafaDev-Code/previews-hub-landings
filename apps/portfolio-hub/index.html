@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Hub publico de landings gastronomicas deployadas en Vercel."
+    >
+    <title>Previews Hub Landings</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="Principal">
+        <a class="brand" href="/">
+          <span class="brand-mark">PH</span>
+          <span>Previews Hub Landings</span>
+        </a>
+        <div class="nav-meta">
+          <span>10 landings publicas</span>
+          <span>31 disponibles</span>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio gastronomico</p>
+          <h1>Un hub publico para recorrer landings gastronomicas.</h1>
+          <p>
+            Diez demos deployadas desde un mismo monorepo. Cada landing resuelve un caso distinto:
+            reserva, delivery, menu, producto visual o pedido rapido.
+          </p>
+        </div>
+        <aside class="hero-panel" aria-label="Resumen">
+          <div>
+            <strong id="landingCount">10</strong>
+            <span>landings en el hub</span>
+          </div>
+          <div>
+            <strong>10</strong>
+            <span>categorias gastronomicas</span>
+          </div>
+          <div>
+            <strong id="liveCount">0</strong>
+            <span>URLs configuradas</span>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="toolbar" aria-label="Filtros">
+        <label class="search">
+          <span>Buscar</span>
+          <input id="search" type="search" placeholder="Categoria, variante, modo">
+        </label>
+        <div id="filters" class="filters"></div>
+      </section>
+
+      <section class="workspace">
+        <div id="cards" class="cards" aria-live="polite"></div>
+        <aside class="preview-panel" aria-label="Preview">
+          <div class="preview-head">
+            <div>
+              <strong id="previewTitle">Selecciona una landing</strong>
+              <span id="previewMeta">El preview aparece cuando la URL publica esta configurada.</span>
+            </div>
+            <a id="previewLink" class="button primary hidden" href="#" target="_blank" rel="noreferrer">Abrir</a>
+          </div>
+          <div id="previewEmpty" class="preview-empty">
+            <strong>Sin preview activo</strong>
+            <p>Deploya una landing en Vercel y agrega su URL en `data/landings.json`.</p>
+          </div>
+          <iframe id="previewFrame" class="hidden" title="Landing preview"></iframe>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Proyecto preparado como monorepo para publicar demos individuales en Vercel.</p>
+      <a href="https://vercel.com/docs/monorepos" target="_blank" rel="noreferrer">Vercel Monorepos</a>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

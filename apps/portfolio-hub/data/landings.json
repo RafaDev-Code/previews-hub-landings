@@ -1,0 +1,112 @@
+[
+  {
+    "id": "restaurantes-airbnb",
+    "title": "Restaurante",
+    "category": "Restaurantes",
+    "variant": "Airbnb",
+    "mode": "Reservar mesa",
+    "rootDirectory": "restaurant-templates/restaurantes/template-01-airbnb/landing",
+    "projectName": "restaurantes-airbnb",
+    "publicUrl": "https://restaurantes-airbnb.vercel.app",
+    "summary": "Experiencia visual para reserva, ubicacion, confianza y plato destacado."
+  },
+  {
+    "id": "comida-argentina-mastercard",
+    "title": "Comida argentina",
+    "category": "Comida argentina",
+    "variant": "Mastercard",
+    "mode": "Reservar mesa",
+    "rootDirectory": "restaurant-templates/comida-argentina/template-02-mastercard/landing",
+    "projectName": "comida-argentina-mastercard",
+    "publicUrl": "https://comida-argentina-mastercard.vercel.app",
+    "summary": "Parrilla y bodegon con tono calido, promos, confianza y reserva directa."
+  },
+  {
+    "id": "comida-rapida-uber",
+    "title": "Comida rapida",
+    "category": "Comida rapida",
+    "variant": "Uber",
+    "mode": "Pedir ahora",
+    "rootDirectory": "restaurant-templates/comida-rapida/template-01-uber/landing",
+    "projectName": "comida-rapida-uber",
+    "publicUrl": "https://comida-rapida-uber.vercel.app",
+    "summary": "Landing de accion inmediata para combos, precio, velocidad y pedido mobile."
+  },
+  {
+    "id": "comida-delivery-shopify",
+    "title": "Delivery",
+    "category": "Comida delivery",
+    "variant": "Shopify",
+    "mode": "Pedir delivery",
+    "rootDirectory": "restaurant-templates/comida-delivery/template-02-shopify/landing",
+    "projectName": "comida-delivery-shopify",
+    "publicUrl": "https://comida-delivery-shopify.vercel.app",
+    "summary": "Catalogo operativo para cobertura, tiempos, productos y conversion de pedido."
+  },
+  {
+    "id": "bares-spotify",
+    "title": "Bar",
+    "category": "Bares",
+    "variant": "Spotify",
+    "mode": "Reservar mesa",
+    "rootDirectory": "restaurant-templates/bares/template-01-spotify/landing",
+    "projectName": "bares-spotify",
+    "publicUrl": "https://bares-spotify.vercel.app",
+    "summary": "Bar nocturno con agenda, musica, tragos, ambiente y reserva."
+  },
+  {
+    "id": "cafeteria-notion",
+    "title": "Cafeteria",
+    "category": "Cafeteria",
+    "variant": "Notion",
+    "mode": "Ver menu",
+    "rootDirectory": "restaurant-templates/cafeteria/template-02-notion/landing",
+    "projectName": "cafeteria-notion",
+    "publicUrl": "https://cafeteria-notion.vercel.app",
+    "summary": "Cafe de paso con menu claro, horarios, direccion y lectura limpia."
+  },
+  {
+    "id": "desayuno-airbnb",
+    "title": "Desayuno",
+    "category": "Desayuno",
+    "variant": "Airbnb",
+    "mode": "Pedir desayuno",
+    "rootDirectory": "restaurant-templates/desayuno/template-03-airbnb/landing",
+    "projectName": "desayuno-airbnb",
+    "publicUrl": "https://desayuno-airbnb.vercel.app",
+    "summary": "Brunch y desayuno con combos, frescura, retiro, delivery y cercania."
+  },
+  {
+    "id": "bebidas-pinterest",
+    "title": "Bebidas",
+    "category": "Bebidas",
+    "variant": "Pinterest",
+    "mode": "Pedir bebidas",
+    "rootDirectory": "restaurant-templates/bebidas/template-03-pinterest/landing",
+    "projectName": "bebidas-pinterest",
+    "publicUrl": "https://bebidas-pinterest.vercel.app",
+    "summary": "Producto visual para packs, sabores, promos, disponibilidad y compra rapida."
+  },
+  {
+    "id": "helados-clay",
+    "title": "Helados",
+    "category": "Helados",
+    "variant": "Clay",
+    "mode": "Pedir helado",
+    "rootDirectory": "restaurant-templates/helados/template-01-clay/landing",
+    "projectName": "helados-clay",
+    "publicUrl": "https://helados-clay.vercel.app",
+    "summary": "Sabores, tamanos, delivery y producto antojable como centro de decision."
+  },
+  {
+    "id": "comida-internacional-mastercard",
+    "title": "Cocina internacional",
+    "category": "Comida internacional",
+    "variant": "Mastercard",
+    "mode": "Reservar mesa",
+    "rootDirectory": "restaurant-templates/comida-internacional/template-03-mastercard/landing",
+    "projectName": "comida-internacional-mastercard",
+    "publicUrl": "https://comida-internacional-mastercard.vercel.app",
+    "summary": "Experiencia premium accesible con confianza, detalle y reserva."
+  }
+]

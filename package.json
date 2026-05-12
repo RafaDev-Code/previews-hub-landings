@@ -13,6 +13,7 @@
     "preview:all": "START_ALL=1 node restaurant-templates/tools/preview-hub.mjs"
   },
   "workspaces": [
+    "apps/portfolio-hub",
     "restaurant-templates/restaurantes/*/landing",
     "restaurant-templates/comida-argentina/*/landing",
     "restaurant-templates/comida-rapida/*/landing",

@@ -1,6 +1,6 @@
 # Deploy en Vercel
 
-Este repo esta preparado para Vercel Monorepos con npm workspaces. Cada landing se deploya como un proyecto separado dentro del mismo repositorio.
+Este repo esta preparado para Vercel Monorepos con npm workspaces. El portfolio publico y cada landing se deployan como proyectos separados dentro del mismo repositorio.
 
 ## Configuracion recomendada
 
@@ -15,9 +15,54 @@ En Vercel Dashboard:
 7. Output Directory: default.
 8. Node.js Version: 22.x.
 
-Repetir el flujo para cada landing publica que quieras mostrar.
+Repetir el flujo para el hub publico y para cada landing publica que quieras mostrar.
 
-Vercel puede crear un proyecto por cada directorio del monorepo. No hace falta deployar las 31 desde el primer dia: para portfolio conviene empezar con 3 a 6 demos fuertes y despues sumar mas.
+Vercel puede crear un proyecto por cada directorio del monorepo. Para este portfolio, el primer corte recomendado es `1 hub publico + 10 landings`.
+
+## Hub publico
+
+| Proyecto sugerido | Root Directory |
+| --- | --- |
+| `previews-hub-landings` | `apps/portfolio-hub` |
+
+Config del hub publico:
+
+| Setting | Valor |
+| --- | --- |
+| Framework Preset | `Other` |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+
+El JSON ya trae URLs esperadas tipo `https://<projectName>.vercel.app`. Despues de deployar las landings, revisar que esas URLs coincidan con las URLs reales en:
+
+```text
+apps/portfolio-hub/data/landings.json
+```
+
+Luego redeployar el hub publico.
+
+## Primeras 10 landings
+
+| Proyecto sugerido | Root Directory |
+| --- | --- |
+| `restaurantes-airbnb` | `restaurant-templates/restaurantes/template-01-airbnb/landing` |
+| `comida-argentina-mastercard` | `restaurant-templates/comida-argentina/template-02-mastercard/landing` |
+| `comida-rapida-uber` | `restaurant-templates/comida-rapida/template-01-uber/landing` |
+| `comida-delivery-shopify` | `restaurant-templates/comida-delivery/template-02-shopify/landing` |
+| `bares-spotify` | `restaurant-templates/bares/template-01-spotify/landing` |
+| `cafeteria-notion` | `restaurant-templates/cafeteria/template-02-notion/landing` |
+| `desayuno-airbnb` | `restaurant-templates/desayuno/template-03-airbnb/landing` |
+| `bebidas-pinterest` | `restaurant-templates/bebidas/template-03-pinterest/landing` |
+| `helados-clay` | `restaurant-templates/helados/template-01-clay/landing` |
+| `comida-internacional-mastercard` | `restaurant-templates/comida-internacional/template-03-mastercard/landing` |
+
+Config de cada landing:
+
+| Setting | Valor |
+| --- | --- |
+| Framework Preset | `React Router` |
+| Build Command | `npm run build` |
+| Output Directory | default |
 
 ## Root directories
 
@@ -57,7 +102,7 @@ Vercel puede crear un proyecto por cada directorio del monorepo. No hace falta d
 
 ## Demos recomendadas para empezar
 
-Para portfolio, arrancaria con estas:
+Si preferis empezar mas chico que 10, arrancaria con estas:
 
 | Caso | Root Directory |
 | --- | --- |
