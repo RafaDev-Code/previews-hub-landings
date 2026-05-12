@@ -1,0 +1,27 @@
+{
+  "name": "previews-hub-landings",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "check:hub": "node --check restaurant-templates/tools/preview-hub.mjs",
+    "preview:hub": "node restaurant-templates/tools/preview-hub.mjs",
+    "preview:all": "START_ALL=1 node restaurant-templates/tools/preview-hub.mjs"
+  },
+  "workspaces": [
+    "restaurant-templates/restaurantes/*/landing",
+    "restaurant-templates/comida-argentina/*/landing",
+    "restaurant-templates/comida-rapida/*/landing",
+    "restaurant-templates/comida-delivery/*/landing",
+    "restaurant-templates/bares/*/landing",
+    "restaurant-templates/cafeteria/*/landing",
+    "restaurant-templates/desayuno/*/landing",
+    "restaurant-templates/bebidas/*/landing",
+    "restaurant-templates/helados/*/landing",
+    "restaurant-templates/comida-internacional/*/landing"
+  ]
+}

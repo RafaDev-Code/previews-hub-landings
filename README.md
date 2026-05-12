@@ -24,7 +24,6 @@ nvm use
 ## Uso local
 
 ```bash
-cd restaurant-templates
 npm ci
 npm run preview:hub
 ```
@@ -42,34 +41,34 @@ El hub inicia cada landing bajo demanda, asi que no hace falta correr las 31 pre
 Correr el hub:
 
 ```bash
-cd restaurant-templates
 npm run preview:hub
 ```
 
 Correr el hub e iniciar todas las landings:
 
 ```bash
-cd restaurant-templates
 npm run preview:all
 ```
 
 Build de todas las landings:
 
 ```bash
-cd restaurant-templates
 npm run build
 ```
 
 Typecheck de todas las landings:
 
 ```bash
-cd restaurant-templates
 npm run typecheck
 ```
 
 ## Notas de deploy
 
-El hub de previews esta pensado hoy como herramienta local de portfolio y trabajo. Levanta varios dev servers de React Router en puertos locales y los compara en iframes.
+Este repo queda preparado para usarse como monorepo en Vercel. Cada landing se importa como un proyecto separado usando su carpeta `landing` como Root Directory.
+
+Ver detalles en [VERCEL.md](./VERCEL.md).
+
+El hub de previews sigue pensado como herramienta local de portfolio y trabajo. Levanta varios dev servers de React Router en puertos locales y los compara en iframes.
 
 Para un deploy publico de portfolio, el proximo paso mas limpio es publicar una app de showcase en produccion que:
 
