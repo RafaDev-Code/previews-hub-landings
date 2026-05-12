@@ -11,7 +11,7 @@ En Vercel Dashboard:
 3. Elegir la landing en `Root Directory`.
 4. Framework Preset: `React Router` si aparece; si no, dejar autodeteccion.
 5. Build Command: `npm run build`.
-6. Install Command: default.
+6. Install Command: default. No usar comandos `npm install --prefix=...` copiados de otro proyecto.
 7. Output Directory: default.
 8. Node.js Version: 22.x.
 
@@ -30,6 +30,7 @@ Config del hub publico:
 | Setting | Valor |
 | --- | --- |
 | Framework Preset | `Other` |
+| Install Command | `npm install` |
 | Build Command | `npm run build` |
 | Output Directory | `dist` |
 
