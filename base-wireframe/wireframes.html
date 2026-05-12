@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>El Fueguito — Base Wireframe + Menú QR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink: oklch(0.27 0.02 250);
+    --ink-soft: oklch(0.45 0.02 250);
+    --ink-faint: oklch(0.72 0.015 250);
+    --paper: oklch(0.985 0.008 90);
+    --paper-2: oklch(0.95 0.012 90);
+    --line: oklch(0.78 0.012 250);
+    --line-soft: oklch(0.88 0.01 250);
+    --ember: oklch(0.62 0.18 35);    /* accent 1 — brasa */
+    --highlight: oklch(0.92 0.14 95); /* accent 2 — highlighter */
+    --hand: 'Caveat', cursive;
+    --body: 'Inter', system-ui, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+  }
+  html,body{margin:0;padding:0;background:#f0eee9;}
+  body{font-family:var(--body);color:var(--ink);}
+  /* Wireframe primitives — used inside artboards */
+  .wf{box-sizing:border-box;font-family:var(--body);color:var(--ink);background:var(--paper);height:100%;width:100%;overflow:hidden;font-size:11px;line-height:1.35;}
+  .wf *{box-sizing:border-box;}
+  .wf .scroll{overflow-y:auto;height:100%;}
+  .wf .scroll::-webkit-scrollbar{display:none;}
+  /* Sketchy hand-drawn lines */
+  .hand{font-family:var(--hand);font-weight:500;}
+  .mono{font-family:var(--mono);font-size:9px;letter-spacing:0.02em;color:var(--ink-soft);text-transform:uppercase;}
+  .lbl{font-family:var(--hand);color:var(--ember);font-size:14px;font-weight:600;line-height:1;}
+  .scribble{font-family:var(--hand);color:var(--ink-soft);font-size:13px;line-height:1.1;}
+  .box{border:1.4px solid var(--ink);background:var(--paper);position:relative;}
+  .box.dashed{border-style:dashed;border-color:var(--line);}
+  .box.soft{border-color:var(--line);}
+  .box.fill{background:var(--paper-2);}
+  .box.dark{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .box.ember{background:var(--ember);color:#fff;border-color:var(--ember);}
+  .pill{border:1.4px solid var(--ink);border-radius:999px;padding:4px 10px;display:inline-flex;align-items:center;gap:5px;font-size:10px;background:var(--paper);}
+  .pill.dark{background:var(--ink);color:var(--paper);}
+  .pill.ember{background:var(--ember);color:#fff;border-color:var(--ember);}
+  .pill.soft{border-color:var(--line);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border:1.5px solid var(--ink);background:var(--paper);font-size:11px;font-weight:600;}
+  .btn.primary{background:var(--ink);color:var(--paper);}
+  .btn.ember{background:var(--ember);color:#fff;border-color:var(--ember);}
+  .img{background:
+    repeating-linear-gradient(135deg,var(--line-soft) 0 1px,transparent 1px 6px),
+    var(--paper-2);
+    border:1.2px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--ink-soft);
+    font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.05em;
+    text-align:center;padding:6px;
+  }
+  .img.dark{background:
+    repeating-linear-gradient(135deg,oklch(0.32 0.02 250) 0 1px,transparent 1px 6px),
+    var(--ink);
+    color:var(--ink-faint);border-color:var(--ink);
+  }
+  .img.ember{background:
+    repeating-linear-gradient(135deg,oklch(0.55 0.16 35) 0 1px,transparent 1px 7px),
+    var(--ember);color:#fff;border-color:var(--ember);
+  }
+  .hr{height:1.4px;background:var(--ink);width:100%;}
+  .hr.soft{background:var(--line);height:1px;}
+  .star{color:var(--ember);font-size:11px;letter-spacing:1px;}
+  .highlight-bg{background:var(--highlight);padding:0 4px;}
+  /* phone + desktop frames */
+  .frame-phone{background:var(--paper);border-radius:18px;border:2px solid var(--ink);overflow:hidden;}
+  .frame-desk{background:var(--paper);border:2px solid var(--ink);overflow:hidden;border-radius:6px;}
+  .desk-bar{height:18px;background:var(--paper-2);border-bottom:1.4px solid var(--ink);display:flex;align-items:center;gap:5px;padding:0 8px;}
+  .desk-bar i{width:7px;height:7px;border-radius:50%;border:1px solid var(--ink);display:inline-block;}
+  .phone-statusbar{height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-family:var(--mono);font-size:8px;color:var(--ink-soft);}
+  /* sticky-note dot */
+  .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ink);}
+  .dot.ember{background:var(--ember);}
+  /* utilities */
+  .row{display:flex;gap:6px;align-items:center;}
+  .col{display:flex;flex-direction:column;gap:6px;}
+  .grow{flex:1;}
+  .grid{display:grid;gap:6px;}
+  .center{display:flex;align-items:center;justify-content:center;}
+  .between{display:flex;justify-content:space-between;align-items:center;}
+  .cap{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-soft);}
+  .num{font-family:var(--mono);font-size:9px;color:var(--ink-soft);}
+  .price{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink);}
+  /* loading screen */
+  #loader{position:fixed;inset:0;background:#f0eee9;display:flex;align-items:center;justify-content:center;font-family:var(--hand);font-size:24px;color:var(--ink);z-index:999;}
+</style>
+</head>
+<body>
+<div id="loader">dibujando wireframe base…</div>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="wireframe-kit.jsx"></script>
+<script type="text/babel" src="menu-qr.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
