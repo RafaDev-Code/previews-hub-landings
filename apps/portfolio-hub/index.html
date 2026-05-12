@@ -56,6 +56,11 @@
           <input id="search" type="search" placeholder="Categoria, variante, modo">
         </label>
         <div id="filters" class="filters"></div>
+        <div class="compare-actions">
+          <span id="compareCount">0 seleccionadas</span>
+          <button id="compareSelected" class="button primary" type="button" disabled>Comparar</button>
+          <button id="clearCompare" class="button secondary" type="button" disabled>Limpiar</button>
+        </div>
       </section>
 
       <section class="workspace">
@@ -73,6 +78,7 @@
             <p>Deploya una landing en Vercel y agrega su URL en `data/landings.json`.</p>
           </div>
           <iframe id="previewFrame" class="hidden" title="Landing preview"></iframe>
+          <div id="compareFrames" class="compare-frames hidden"></div>
         </aside>
       </section>
     </main>

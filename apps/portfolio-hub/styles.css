@@ -161,7 +161,7 @@ main {
 
 .toolbar {
   display: grid;
-  grid-template-columns: minmax(220px, 330px) minmax(0, 1fr);
+  grid-template-columns: minmax(220px, 330px) minmax(0, 1fr) auto;
   gap: 14px;
   align-items: end;
   margin-bottom: 18px;
@@ -214,6 +214,25 @@ main {
   opacity: 0.74;
 }
 
+.compare-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.compare-actions span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.compare-actions button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
 .workspace {
   display: grid;
   grid-template-columns: minmax(340px, 430px) minmax(0, 1fr);
@@ -232,6 +251,10 @@ main {
   border-radius: 8px;
   background: var(--panel);
   box-shadow: var(--shadow);
+}
+
+.card.selected {
+  border-color: var(--green);
 }
 
 .card-body {
@@ -275,10 +298,37 @@ h2 {
 
 .card-footer {
   display: grid;
-  grid-template-columns: auto auto minmax(0, 1fr);
+  grid-template-columns: auto auto auto minmax(0, 1fr);
   gap: 10px;
   align-items: center;
   margin-top: 4px;
+}
+
+.compare-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0 10px;
+}
+
+.compare-toggle input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--green);
+}
+
+.compare-toggle:has(input:disabled) {
+  cursor: default;
+  opacity: 0.55;
 }
 
 .button {
@@ -366,6 +416,55 @@ code {
   background: #fff;
 }
 
+.compare-frames {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  max-height: 720px;
+  overflow: auto;
+  padding: 12px;
+}
+
+.compare-frame {
+  overflow: hidden;
+  min-height: 650px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.compare-frame-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 58px;
+  border-bottom: 1px solid var(--line);
+  padding: 10px;
+}
+
+.compare-frame-head div {
+  min-width: 0;
+}
+
+.compare-frame-head strong,
+.compare-frame-head span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compare-frame-head span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.compare-frame iframe {
+  height: 590px;
+}
+
 .preview-empty {
   display: grid;
   min-height: 626px;
@@ -427,6 +526,7 @@ code {
   }
 
   .filters,
+  .compare-actions,
   .nav-meta {
     justify-content: flex-start;
   }
