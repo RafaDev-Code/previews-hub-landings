@@ -1,0 +1,23 @@
+{
+  "name": "previews-hub-landings",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "check:hub": "node --check tools/preview-hub.mjs",
+    "preview:hub": "node tools/preview-hub.mjs",
+    "preview:all": "START_ALL=1 node tools/preview-hub.mjs"
+  },
+  "workspaces": [
+    "restaurantes/*/landing",
+    "comida-argentina/*/landing",
+    "comida-rapida/*/landing",
+    "comida-delivery/*/landing",
+    "bares/*/landing",
+    "cafeteria/*/landing",
+    "desayuno/*/landing",
+    "bebidas/*/landing",
+    "helados/*/landing",
+    "comida-internacional/*/landing"
+  ]
+}

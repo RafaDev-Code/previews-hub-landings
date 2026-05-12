@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "restaurantes",
+    "label": "Restaurantes",
+    "variants": [
+      {
+        "name": "Airbnb",
+        "path": "restaurant-templates/restaurantes/template-01-airbnb/landing"
+      },
+      {
+        "name": "Pinterest",
+        "path": "restaurant-templates/restaurantes/template-02-pinterest/landing"
+      },
+      {
+        "name": "Shopify",
+        "path": "restaurant-templates/restaurantes/template-03-shopify/landing"
+      }
+    ]
+  },
+  {
+    "slug": "comida-argentina",
+    "label": "Comida argentina",
+    "variants": [
+      {
+        "name": "Airbnb",
+        "path": "restaurant-templates/comida-argentina/template-01-airbnb/landing"
+      },
+      {
+        "name": "Mastercard",
+        "path": "restaurant-templates/comida-argentina/template-02-mastercard/landing"
+      },
+      {
+        "name": "Ferrari",
+        "path": "restaurant-templates/comida-argentina/template-03-ferrari/landing"
+      }
+    ]
+  },
+  {
+    "slug": "comida-rapida",
+    "label": "Comida rápida",
+    "variants": [
+      {
+        "name": "Uber",
+        "path": "restaurant-templates/comida-rapida/template-01-uber/landing"
+      },
+      {
+        "name": "Shopify",
+        "path": "restaurant-templates/comida-rapida/template-02-shopify/landing"
+      },
+      {
+        "name": "Starbucks",
+        "path": "restaurant-templates/comida-rapida/template-03-starbucks/landing"
+      }
+    ]
+  },
+  {
+    "slug": "comida-delivery",
+    "label": "Comida delivery",
+    "variants": [
+      {
+        "name": "Uber",
+        "path": "restaurant-templates/comida-delivery/template-01-uber/landing"
+      },
+      {
+        "name": "Shopify",
+        "path": "restaurant-templates/comida-delivery/template-02-shopify/landing"
+      },
+      {
+        "name": "Starbucks",
+        "path": "restaurant-templates/comida-delivery/template-03-starbucks/landing"
+      }
+    ]
+  },
+  {
+    "slug": "bares",
+    "label": "Bares",
+    "variants": [
+      {
+        "name": "Spotify",
+        "path": "restaurant-templates/bares/template-01-spotify/landing"
+      },
+      {
+        "name": "The Verge",
+        "path": "restaurant-templates/bares/template-02-the-verge/landing"
+      },
+      {
+        "name": "Ferrari",
+        "path": "restaurant-templates/bares/template-03-ferrari/landing"
+      }
+    ]
+  },
+  {
+    "slug": "cafeteria",
+    "label": "Cafetería",
+    "variants": [
+      {
+        "name": "Starbucks",
+        "path": "restaurant-templates/cafeteria/template-01-starbucks/landing"
+      },
+      {
+        "name": "Notion",
+        "path": "restaurant-templates/cafeteria/template-02-notion/landing"
+      },
+      {
+        "name": "Mastercard",
+        "path": "restaurant-templates/cafeteria/template-03-mastercard/landing"
+      }
+    ]
+  },
+  {
+    "slug": "desayuno",
+    "label": "Desayuno",
+    "variants": [
+      {
+        "name": "Starbucks",
+        "path": "restaurant-templates/desayuno/template-01-starbucks/landing"
+      },
+      {
+        "name": "Mastercard",
+        "path": "restaurant-templates/desayuno/template-02-mastercard/landing"
+      },
+      {
+        "name": "Airbnb",
+        "path": "restaurant-templates/desayuno/template-03-airbnb/landing"
+      }
+    ]
+  },
+  {
+    "slug": "bebidas",
+    "label": "Bebidas",
+    "variants": [
+      {
+        "name": "Starbucks",
+        "path": "restaurant-templates/bebidas/template-01-starbucks/landing"
+      },
+      {
+        "name": "Shopify",
+        "path": "restaurant-templates/bebidas/template-02-shopify/landing"
+      },
+      {
+        "name": "Pinterest",
+        "path": "restaurant-templates/bebidas/template-03-pinterest/landing"
+      }
+    ]
+  },
+  {
+    "slug": "helados",
+    "label": "Helados",
+    "variants": [
+      {
+        "name": "Clay",
+        "path": "restaurant-templates/helados/template-01-clay/landing"
+      },
+      {
+        "name": "Figma",
+        "path": "restaurant-templates/helados/template-02-figma/landing"
+      },
+      {
+        "name": "Pinterest",
+        "path": "restaurant-templates/helados/template-03-pinterest/landing"
+      }
+    ]
+  },
+  {
+    "slug": "comida-internacional",
+    "label": "Comida internacional",
+    "variants": [
+      {
+        "name": "Airbnb",
+        "path": "restaurant-templates/comida-internacional/template-01-airbnb/landing"
+      },
+      {
+        "name": "Pinterest",
+        "path": "restaurant-templates/comida-internacional/template-02-pinterest/landing"
+      },
+      {
+        "name": "Mastercard",
+        "path": "restaurant-templates/comida-internacional/template-03-mastercard/landing"
+      }
+    ]
+  }
+]

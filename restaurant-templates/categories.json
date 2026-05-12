@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "restaurantes",
+    "label": "Restaurantes"
+  },
+  {
+    "slug": "comida-argentina",
+    "label": "Comida argentina"
+  },
+  {
+    "slug": "comida-rapida",
+    "label": "Comida rápida"
+  },
+  {
+    "slug": "comida-delivery",
+    "label": "Comida delivery"
+  },
+  {
+    "slug": "bares",
+    "label": "Bares"
+  },
+  {
+    "slug": "cafeteria",
+    "label": "Cafetería"
+  },
+  {
+    "slug": "desayuno",
+    "label": "Desayuno"
+  },
+  {
+    "slug": "bebidas",
+    "label": "Bebidas"
+  },
+  {
+    "slug": "helados",
+    "label": "Helados"
+  },
+  {
+    "slug": "comida-internacional",
+    "label": "Comida internacional"
+  }
+]
